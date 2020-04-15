@@ -51,7 +51,7 @@ public class FileScanner {
             @Override
             public void run() {
                 try {
-                    scanCallback.callback(dir);
+                    scanCallback.callback(dir);//将dir下一级的文件信息更新保存到数据库
                     File[] children = dir.listFiles();//dir的下一级目录
                     if (children != null) {
                         for (File child : children) {

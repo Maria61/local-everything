@@ -21,6 +21,6 @@ public class Main extends Application {
         primaryStage.show();
     }
     public static void main(String[] args) {
-        launch(args);//???调用start方法，启动整个程序的？
+        launch(args);//调用start方法，启动整个程序的
     }
 }

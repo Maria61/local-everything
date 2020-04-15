@@ -10,6 +10,10 @@ import java.util.Date;
 import java.util.List;
 
 public class FileSave implements task.ScanCallback {
+    /**
+     * 将本地dir下的文件信息保存到数据库中，并对数据库进行一定的更新
+     * @param dir
+     */
     @Override
     public void callback(File dir) {
         File[] children = dir.listFiles();

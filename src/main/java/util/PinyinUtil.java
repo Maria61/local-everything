@@ -39,7 +39,7 @@ public class PinyinUtil {
      */
     public static boolean containsChinese(String name){
         //name.
-        return name.matches(".*"+CHINESE_PATTERN+".*");
+        return name.matches(".*"+CHINESE_PATTERN+".*");//？？？
     }
 
     /**
@@ -154,13 +154,13 @@ public class PinyinUtil {
         return set.toArray(new String[set.size()]);
     }
 
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(get("中华人民共和国")));
-        System.out.println(Arrays.toString(get("中华人dfgsg民共和国")));
-
-        System.out.println(Arrays.toString(
-                compose(get("中华人民共和国",true))));
-        System.out.println(Arrays.toString(compose(get("和长和",false))));
-    }
+//    public static void main(String[] args) {
+//        System.out.println(Arrays.toString(get("中华人民共和国")));
+//        System.out.println(Arrays.toString(get("中华人dfgsg民共和国")));
+//
+//        System.out.println(Arrays.toString(
+//                compose(get("中华人民共和国",true))));
+//        System.out.println(Arrays.toString(compose(get("和长和",false))));
+//    }
 
 }

@@ -38,9 +38,8 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         //界面初始化时，需要初始化数据库及表
         DBInit.init();
-        // 添加搜索框监听器，内容改变时执行监听事件
+        // 添加搜索框监听器，内容改变时执行监听事件//？？？
         searchField.textProperty().addListener(new ChangeListener<String>() {
-
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 freshTable();
             }
@@ -49,15 +48,14 @@ public class Controller implements Initializable {
 
     public void choose(Event event) {
         // 选择文件目录
-        DirectoryChooser directoryChooser=new DirectoryChooser();
+        DirectoryChooser directoryChooser=new DirectoryChooser();//❓
         Window window = rootPane.getScene().getWindow();
         File file = directoryChooser.showDialog(window);
         if(file == null)
             return;
         // 获取选择的目录路径，并显示
         String path = file.getPath();
-        // TODO
-        srcDirectory.setText(path);
+        srcDirectory.setText(path);//❓srcDirectory是？
         //选择了目录后，需要对该目录进行扫描
         if(task != null){
             task.interrupt();
@@ -85,15 +83,13 @@ public class Controller implements Initializable {
     }
 
     // 刷新表格数据
-    private void freshTable(){
-        ObservableList<FileMeta> metas = fileTable.getItems();
-        metas.clear();
-        // TODO
-
+    private void freshTable(){//？？？？？
+        ObservableList<FileMeta> metas = fileTable.getItems();//getItems??? ObservableList??
+        metas.clear();//???
         String dir = srcDirectory.getText();
         if(dir != null && dir.trim().length() != 0){
-            String content = searchField.getText();
-            //TODO:提供数据库的插叙方法
+            String content = searchField.getText();//获取搜索框内的内容
+            //提供数据库的插叙方法
             List<FileMeta> fileMetas = FileSearch.search(dir,content);
             metas.addAll(fileMetas);
         }

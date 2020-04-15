@@ -20,7 +20,7 @@ public class DBInit {
         //通过getClassLoader()
         try {
             InputStream is = DBInit.class.getClassLoader()
-                    .getResourceAsStream("init.sql");
+                    .getResourceAsStream("init.sql");//❓？？这些方法都是什么意思？
 
             BufferedReader br = new BufferedReader(
                     new InputStreamReader(is,"UTF-8"));
@@ -67,11 +67,11 @@ public class DBInit {
 
     }
 
-    public static void main(String[] args) {
-        String[] sql = readSQL();
-        for(String s : sql){
-            System.out.println(s);
-        }
-        init();
-    }
+//    public static void main(String[] args) {
+//        String[] sql = readSQL();
+//        for(String s : sql){
+//            System.out.println(s);
+//        }
+//        init();
+//    }
 }
