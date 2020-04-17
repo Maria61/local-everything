@@ -38,8 +38,8 @@ public class DBUtil {
     }
 
     /**
-     * 获取sqlite数据库文件url的方法
      * @return
+     * 获取sqlite数据库文件url的方法
      */
     //获取target编译文件夹的路径
     //通过classLoader.getResource()/classLoader.getResourceAsStream()这样的方法
