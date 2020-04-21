@@ -31,14 +31,14 @@ public class Controller implements Initializable {
     private TableView<FileMeta> fileTable;
 
     @FXML
-    private Label srcDirectory;
+    private Label srcDirectory;//JavaFX中的标签控件
 
     private Thread task;
 
     public void initialize(URL location, ResourceBundle resources) {
         //界面初始化时，需要初始化数据库及表
         DBInit.init();
-        // 添加搜索框监听器，内容改变时执行监听事件//？？？
+        // 添加搜索框监听器，内容改变时执行监听事件//监听界面的变化，根据相应变化启动相应程序
         searchField.textProperty().addListener(new ChangeListener<String>() {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 freshTable();
@@ -48,14 +48,14 @@ public class Controller implements Initializable {
 
     public void choose(Event event) {
         // 选择文件目录
-        DirectoryChooser directoryChooser=new DirectoryChooser();//❓
+        DirectoryChooser directoryChooser=new DirectoryChooser();//JavaFX内的目录选择器
         Window window = rootPane.getScene().getWindow();
         File file = directoryChooser.showDialog(window);
         if(file == null)
             return;
         // 获取选择的目录路径，并显示
         String path = file.getPath();
-        srcDirectory.setText(path);//❓srcDirectory是？
+        srcDirectory.setText(path);//srcDirectory是JavaFX的标签控件，用于显示path
         //选择了目录后，需要对该目录进行扫描
         if(task != null){
             task.interrupt();
@@ -83,9 +83,9 @@ public class Controller implements Initializable {
     }
 
     // 刷新表格数据
-    private void freshTable(){//？？？？？
-        ObservableList<FileMeta> metas = fileTable.getItems();//getItems??? ObservableList??
-        metas.clear();//???
+    private void freshTable(){
+        ObservableList<FileMeta> metas = fileTable.getItems();//getItems 获取表格的数据
+        metas.clear();//获取到当前显示页面的数据后，清除全部，方便添加新的需要显示的数据
         String dir = srcDirectory.getText();
         if(dir != null && dir.trim().length() != 0){
             String content = searchField.getText();//获取搜索框内的内容
