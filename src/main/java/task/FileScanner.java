@@ -70,9 +70,9 @@ public class FileScanner {
 //                            lock.notify();
 //                        }
                         //第二种实现
-//                        latch.countDown();
+                        latch.countDown();
                         //第三种实现
-                        semaphore.release();
+//                        semaphore.release();
                     }
                 }
             }
@@ -87,9 +87,9 @@ public class FileScanner {
 //        synchronized (lock){
 //            lock.wait();
 //        }
-//        latch.await();
         try{
-            semaphore.acquire();
+            latch.await();
+//            semaphore.acquire();
         }finally{
             System.out.println("关闭线程池！");
             pool.shutdownNow();//内部实现原理：thread.interrupt()
