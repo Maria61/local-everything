@@ -65,7 +65,7 @@ public class FileSave implements task.ScanCallback {
             ps.setBoolean(3,meta.getDirectory());
             if(meta.getDirectory()){
                 ps.setString(4,meta.getPath()+File.separator+meta.getName());
-                ps.setString(5,meta.getPath()+File.separator+meta.getName()+File.separator);
+                ps.setString(5,meta.getPath()+File.separator+meta.getName()+File.separator+"%");
             }
             ps.executeUpdate();
 
