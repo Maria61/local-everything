@@ -96,10 +96,9 @@ public class FileScanner {
         }
     }
 
-
-
-
-
+    public static void main(String[] args) {
+        AtomicInteger a = new AtomicInteger();
+    }
 
 //    public static void main(String[] args) throws InterruptedException {
 //        Object obj = null;
