@@ -97,7 +97,10 @@ public class FileScanner {
     }
 
     public static void main(String[] args) {
-        AtomicInteger a = new AtomicInteger();
+        AtomicInteger a = new AtomicInteger(10);
+        a.incrementAndGet();
+        int b = a.decrementAndGet();
+        System.out.println(b);
     }
 
 //    public static void main(String[] args) throws InterruptedException {
